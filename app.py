@@ -18,8 +18,16 @@ def showUsd():
     print(time,code,rate)
 
 def showGbp():
-    #Your code will go here, remove the pass once you are done editing your code
-    pass
+    """
+        This function sends GET request to CoinDesk API and show Bitcoin's current price in Gbp.
+        """
+    response = requests.get(url)  # sending request to url
+    jsonResponse = response.json()  # saving response as JSON
+    time = jsonResponse["time"]["updateduk"]  # getting time from response
+    code = jsonResponse["bpi"]["GBP"]["code"]  # getting currency code from response
+    rate = jsonResponse["bpi"]["GBP"]["rate"]  # getting price in Gpb from response.
+
+    print(time, code, rate)
 
 def showEuro():
     #Your code will go here, remove the pass once you are done editing your code
